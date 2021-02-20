@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>COVID-19 Symptom Checker</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+ <div class="login">
+	<h1 style="color:black">Covid-19 Symptom Checker</h1>
+     <h3> Answer Yes or No to the following questions</h3>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <div>
+            <label for="yes_no_radio">Cough</label>
+            <div id="wrapper" style="margin-left: 33%">
+                <input type="radio" name="yes_no_cough">
+                <label>Yes</label>
+                <input type="radio" name="yes_no_cough">
+                <label>No</label>
+            <div>
+        </div>
+        <div>
+            <label for="yes_no_radio">Fever</label>
+            <div id="wrapper" style="margin-left: 35%">
+                <input type="radio" name="yes_no_fever">
+                <label>Yes</label>
+                <input type="radio" name="yes_no_fever">
+                <label>No</label>
+            </div>
+        </div>
+        <div>
+            <label for="yes_no_radio">Sore Throat</label>
+            <div id="wrapper" style="margin-left: 20%">
+                <input type="radio" name="yes_no_sore_throat">
+                <label>Yes</label>
+                <input type="radio" name="yes_no_sore_throat">
+                <label>No</label>
+            </div>
+        </div>
+        <div>
+            <label for="yes_no_radio">Shortness of breath</label>
+            <div id="wrapper" style="margin-left: 1%">   
+                <input type="radio" name="yes_no_shortness_of_breath">
+                <label>Yes</label>
+                <input type="radio" name="yes_no_shortness_of_breath">
+                <label>No</label>
+            </div>
+        </div>
+        <div>
+            <label for="yes_no_radio">Head Ache</label>
+            <div id="wrapper" style="margin-left: 23%">
+                <input type="radio" name="yes_no_head_ache">
+                <label>Yes</label>
+                <input type="radio" name="yes_no_head_ache">
+                <label>No</label>
+            </div>
+        </div>
+        <div>
+            <label for="yes_no_radio">Age 60 and Above</label>
+            <div id="wrapper" style="margin-left: 6%">
+                <input type="radio" name="yes_no_age_60_and_above">
+                <label>Yes</label>
+                <input type="radio" name="yes_no_age_60_and_above">
+                <label>No</label>
+            </div>
+        </div>
+        <div>
+            <label for="yes_no_radio">Gender</label>
+            <div id="wrapper" style="margin-left: 31%">
+                <input type="radio" name="yes_no_gender">
+                <label>Yes</label>
+                <input type="radio" name="yes_no_gender">
+                <label>No</label>
+            </div>
+        </div>
+        <div>
+            <label for="yes_no_radio">Contact with COVID</label>
+            <div id="wrapper" style="margin-left: 2%">
+                <input type="radio" name="yes_no_contact">
+                <label>Yes</label>
+                <input type="radio" name="yes_no_contact">
+                <label>No</label>
+            </div>
+        </div>
+        <br>
+        <br>
+        <button type="submit" class="btn" style="text-align:center">Predict</button>
+    </form>
+    <br>
+    <br>
+    {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
